@@ -28,7 +28,7 @@ The firmware reads analog EMG data, processes it through a software filter, and 
 - 📈 Real-time signal filtering
 - 🎛️ Threshold-based actuation
 - 📟 OLED UI display of signal magnitude or function
-- 📶 Potentiometer-based gain/sensitivity tuning
+- 📶 Potentiometer-based sensitivity tuning
 
 ## How It Works
 1. EMG signal is captured via electrodes and amplified by the AD8232.
