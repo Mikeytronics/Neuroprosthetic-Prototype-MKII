@@ -21,17 +21,14 @@ The **Neuroprosthetic Prototype MkII** is a functional proof-of-concept for a co
 - **Signal Processing**: Custom filtering shield (NE5532 op-amp based)
 - **Frame**: Custom 3D-printed parts
 
-## Circuit Diagram
-🛠️ _[Add Fritzing diagram or schematic image here]_
-
 ## Software & Firmware
 The firmware reads analog EMG data, processes it through a software filter, and maps signal thresholds to servo positions for finger motion. It also displays relevant status messages or data on the OLED for debugging or monitoring purposes.
 
 ### Features:
-- Real-time signal filtering
-- Threshold-based actuation
-- OLED UI display of signal magnitude or function
-- Potentiometer-based gain/sensitivity tuning
+- 📈 Real-time signal filtering
+- 🎛️ Threshold-based actuation
+- 📟 OLED UI display of signal magnitude or function
+- 📶 Potentiometer-based gain/sensitivity tuning
 
 ## How It Works
 1. EMG signal is captured via electrodes and amplified by the AD8232.
