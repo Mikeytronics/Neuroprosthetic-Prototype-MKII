@@ -1,0 +1,52 @@
+Neuroprosthetic Arm Prototype MKII
+By: Michael Spencer
+
+
+Abstract
+For this build, I decided to 3D print the components of the arm and use a hand design that had basic control of the fingers. I wanted the hand to be about as strong as a human hand, so I wanted to use a powerful motor. I already had 2 20 kg servos left over from the previous version. I looked up prosthetic arm prototype designs on Thingiverse.com and decided to print the Neurporosthetic arm created by user grossrc. It utilized servo motors and had a model ready to print and assemble. I also wanted to implement an OLED screen with a potentiometer and push button for operational control. Additionally, I wanted to improve the EMG signal filtration with bandpass and bandstop filters.
+
+Tools:
+-3D Printer (Anycubic Cobra 2 Neo)
+-Hot Glue Gun/Super Glue
+-Electric Drill
+-File
+-Screwdriver set (Philips and Hex)
+-Soldering Iron (Weller)
+-Tin/Lead Solder
+-Desoldering Wick
+
+Materials: 
+-1x Anycubic 1.75 mm PLA filament (White)
+-6x 8x3 mm Neodymium Magnets
+-1x Arduino Uno (ELEGOO UNO R3)
+-1x Uno Prototype Shield
+-2x 20 kg servo motors (Smraza)
+-1x 10 KΩ Potentiometer
+-1x 128x64 OLED Screen
+-1x AD8232 Heart Monitor (Sparkfun)
+-1x NE5532 OP Amp
+-Assorted Resistors/Electrolytic Capacitors
+-Fishing Line (50 lb)
+-25 ft ⅛ in Shock Cord (Paracord Planet)
+-8x Pointed Screws For Plastic, 410 Stainless Steel, Number 6 Size, 5/8" Long (McMaster-Carr)
+
+Methods
+To filter the signal from the Sparkfun AD8232 Heart Monitor, I had to take into account that the signal picked up for EMGs is usually around 20-500 Hz. Anything below 20 Hz will be noise from a motion artifact. I created a bandpass filter in this range with the NE5532 OP Amp. It is built specifically for instrumentation applications to eliminate unwanted noise and provide precise signal stabilization. I also wanted to get rid of the power line interference which is at around 60 Hz, so I created a band stop filter at this value.
+
+I gathered the materials needed and created a custom Arduino shield to house this circuit. Although it would have been ideal to use ceramic capacitors to filter the signal, electrolytic capacitors were all I had access to. When I connected this circuit to the board, it worked as expected. The only signal picked up was that of the EMG. However, I had to invert the signal in order to get a proper display on the OLED (e.g. EMGvalue = 1023 - EMGvalue).
+
+I finished wiring up the entire circuit, glued the components on like the OLED screen, and button housing, and used capacitors to stabilize the power sources. The potentiometer was mounted with a bolt and washer, and a custom potentiometer knob that I also 3D printed was added.
+
+Results
+The hand functioned as expected. The responsiveness was improved by the use of hardware for signal filtration. The OLED screen display was quick and precise, allowing the user instant feedback of the EMG signal and threshold. The button’s response was improved with the use of a 10µF capacitor in parallel. 
+
+Conclusion
+This project was a great introduction to 3D printing with neuroprosthetics. The acquisition of a 3D printer allowed me to create custom parts at an efficient pace, accelerating the rate at which I was able to complete the project.
+
+For my next prototype, I will add ceramic capacitors for the purpose of signal filtration rather than electrolytic ones. They are meant for this purpose, as a reverse in polarity of the signal will effectively damage electrolytic capacitors over time. Instead, I will only use the electrolytic counterpart for the purpose of stabilizing the power supply. Also, I wish to utilize a different battery. I may use a 2S or 3S LiPo battery, although it may be too large to fit in the housing, so it may require external storage. This will allow the user a more stable, longer lasting power supply. Additionally, I want to add functionality. I want the user to be able to move the fingers individually and have flexion, extension, pronation, and supination of the wrist. In addition, I will add force sensors to give the user feedback of their grip strength, and force sensitive resistors that allow for the sensation of touch. I want all of this to be in a wearable design that is comfortable and practical for the user.
+
+In order to achieve this, I will have to come up with an alternative design for the housing of the respective additional servo motors, manage space for the electrical components, stabilize the power supplies to the sensors/filters from the microcontrollers, as well as shield the sensitive EMG signal from interference from other electrical components. This project was mostly about prototyping the electronics rather than creating a wearable device, so my next project will focus on the desired features while allowing the user a safe, comfortable wear. I will order a PCB with the desired features for my next prototype.
+
+Works Cited
+Gross, R. (2016, August 11). Robotic Prosthetic Hand. Thingiverse. https://www.thingiverse.com/thing:1691704
+ 
